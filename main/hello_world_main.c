@@ -131,7 +131,7 @@ void check_update_task(void *pvParameter) {
 			
 			// parse the json file	
 			cJSON *json = cJSON_Parse(rcv_buffer);
-			if(json == NULL) printf("downloaded file is not a valid json, aborting...\n");
+			if(json == NULL) printf("Downloaded file is not a valid json, aborting...\n");
 			else {	
 				cJSON *version = cJSON_GetObjectItemCaseSensitive(json, "version");
 				cJSON *file = cJSON_GetObjectItemCaseSensitive(json, "file");
