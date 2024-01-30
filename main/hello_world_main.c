@@ -1,9 +1,31 @@
 #include <stdio.h>
-#include "driver/gpio.h"
+#include <stdint.h>
+#include <stddef.h>
+#include <string.h>
+#include "esp_wifi.h"
+#include "esp_system.h"
+#include "nvs_flash.h"
+#include "esp_event.h"
+#include "esp_netif.h"
+
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "freertos/semphr.h"
+#include "freertos/queue.h"
+
+#include "lwip/sockets.h"
+#include "lwip/dns.h"
+#include "lwip/netdb.h"
+
+#include "esp_log.h"
 #include "connect_wifi.h"
 #include "esp_http_client.h"
+#include "esp_https_ota.h"
+#include "cJSON.h"
+#include "nvs.h"
+#include "nvs_flash.h"
+#include "esp_ota_ops.h"
+#include "esp_partition.h"
 
 // https://wokwi.com/projects/305566932847821378
 #define LED_PIN 2
@@ -78,6 +100,13 @@ void sendTask(void *pvParameter) {
         vTaskDelay(10000 / portTICK_PERIOD_MS);        
     }
 }
+
+// Vi har en KONSTANT = FIRMARE_VERSION i vår kod
+// - När vi kör programmet kommer FIRMWARE_VERSION ha ett värde
+// - LOOP
+// -    Kolla github ifall värdet på versionen är högre än vårat nuvarande värde
+
+// Programändring
 
 void check_update_task(void *pvParameter) {
 	int cnt = 0;
@@ -167,7 +196,7 @@ void app_main(void)
 
     connect_wifi();
     
-    xTaskCreate(sendTask, "sendToThingSpeak", 8192, NULL, 5, NULL);
+    xTaskCreate(check_update_task, "sendToThingSpeak", 8192, NULL, 5, NULL);
 
     while(1){
         gpio_set_level(LED_PIN,1 );

@@ -1,4 +1,4 @@
 {
     "version": 0.1,
-    "file" : "https://github.com/Chrisvasa/esp32fota/blob/main/build/firstblink.bin"
+    "file" : "https://github.com/Chrisvasa/esp32fota/raw/main/build/firstblink.bin"
 }
