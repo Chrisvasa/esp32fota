@@ -61,8 +61,8 @@ esp_err_t _http_event_handler(esp_http_client_event_t *evt) {
     return ESP_OK;
 }
 
-#define VERSION 0.1
-#define UPDATE_JSON_URL https://raw.githubusercontent.com/Chrisvasa/esp32fota/main/bin/firmwware.json?token=GHSAT0AAAAAACKQ3G7GYUXNHP7Q5QESLZF4ZNYZWPA
+#define FIRMWARE_VERSION 0.1
+#define UPDATE_JSON_URL "https://raw.githubusercontent.com/Chrisvasa/esp32fota/main/bin/firmwware.json?token=GHSAT0AAAAAACKQ3G7GYUXNHP7Q5QESLZF4ZNYZWPA"
 
 void updateTask(void) {
     /*
