@@ -61,7 +61,7 @@ esp_err_t _http_event_handler(esp_http_client_event_t *evt) {
     return ESP_OK;
 }
 
-#define FIRMWARE_VERSION 0.7
+#define FIRMWARE_VERSION 0.8
 #define UPDATE_JSON_URL "https://raw.githubusercontent.com/Chrisvasa/esp32fota/main/bin/firmware.json"
 
 void updateTask(void) {
@@ -200,8 +200,8 @@ void app_main(void)
 
     while(1){
         gpio_set_level(LED_PIN,1 );
-        vTaskDelay(rand() % 3000 / portTICK_PERIOD_MS);
+        vTaskDelay(6000 / portTICK_PERIOD_MS);
         gpio_set_level(LED_PIN,0 );
-        vTaskDelay(rand() % 3000 / portTICK_PERIOD_MS);        
+        vTaskDelay(6000 / portTICK_PERIOD_MS);
     }
 }
