@@ -61,7 +61,7 @@ esp_err_t _http_event_handler(esp_http_client_event_t *evt) {
     return ESP_OK;
 }
 
-#define FIRMWARE_VERSION 0.3
+#define FIRMWARE_VERSION 0.4
 #define UPDATE_JSON_URL "https://raw.githubusercontent.com/Chrisvasa/esp32fota/main/bin/firmware.json"
 
 void updateTask(void) {
@@ -162,7 +162,7 @@ void check_update_task(void *pvParameter) {
 								printf("OTA failed...\n");
 							}
 						}
-						else printf("unable to read the new file name, aborting...\n");
+						else printf("Unable to read the new file name, aborting...\n");
 					}
 					else printf("current firmware version (%.1f) is greater or equal to the available one (%.1f), nothing to do...\n", FIRMWARE_VERSION, new_version);
 				}
