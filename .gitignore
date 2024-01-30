@@ -1,5 +1,6 @@
 build/*
 !build/firstblink.bin
+!build/uf2.bin
 .vscode/*
 .devcontainer/*
 sdkconfig
