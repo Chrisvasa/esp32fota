@@ -1,4 +1,4 @@
 {
     "version": 0.1,
-    "file" : "https://raw.githubusercontent.com/Chrisvasa/esp32fota/main/bin/firmwware.json?token=GHSAT0AAAAAACKQ3G7GYUXNHP7Q5QESLZF4ZNYZWPA"
+    "file" : "https://github.com/Chrisvasa/esp32fota/blob/main/build/firstblink.bin"
 }
